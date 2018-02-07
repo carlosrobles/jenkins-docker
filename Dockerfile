@@ -10,7 +10,9 @@ RUN apt-get update && apt-get install -y \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install plugins
-RUN /usr/local/bin/install-plugins.sh github-api:1.90
+RUN /usr/local/bin/install-plugins.sh \
+  github-api:1.90 \
+  scm-sync-configuration:0.0.10
 
 # Drop back to the regular jenkins user - good practice
 USER jenkins
