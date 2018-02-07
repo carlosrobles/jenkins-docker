@@ -12,7 +12,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Install plugins
 RUN /usr/local/bin/install-plugins.sh \
   github-api:1.90 \
-  scm-sync-configuration:0.0.10
+  scm-sync-configuration:0.0.10 \
+  github:1.29.0
 
 # Drop back to the regular jenkins user - good practice
 USER jenkins
