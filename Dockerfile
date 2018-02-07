@@ -13,6 +13,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN /usr/local/bin/install-plugins.sh \
   github:1.29.0 \
   scm-sync-configuration:0.0.10
+  
+# Configure SSH client
+RUN echo 'StrictHostKeyChecking no' >> /etc/ssh/ssh_config
 
 # Drop back to the regular jenkins user - good practice
 USER jenkins
