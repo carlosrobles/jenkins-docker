@@ -16,6 +16,9 @@ RUN /usr/local/bin/install-plugins.sh \
   
 # Configure SSH client
 RUN echo 'StrictHostKeyChecking no' >> /etc/ssh/ssh_config
+Host *\n\
+  IdentityFile /var/jenkins/home/.ssh/carlos-key-pair-useast2.pem\n'\
+>> /etc/ssh/ssh_config
 
 # Drop back to the regular jenkins user - good practice
 USER jenkins
