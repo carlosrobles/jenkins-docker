@@ -1,5 +1,6 @@
 FROM jenkins/jenkins:lts
 # If we want to install via apt
+# Also to avoid the permission issue of /var/jenkins_home/copy_reference_file.log
 USER root
 
 # Install PHP7.0
@@ -15,11 +16,8 @@ RUN /usr/local/bin/install-plugins.sh \
   scm-sync-configuration:0.0.10
   
 # Configure SSH client
-RUN echo 'StrictHostKeyChecking no' >> /etc/ssh/ssh_config
-RUN echo '\n\
-Host *\n\
-  IdentityFile /var/jenkins_home/.ssh/ssh_key.pem\n'\
+RUN echo '\n \
+StrictHostKeyChecking no \n \ 
+Host * \n \
+  IdentityFile /var/jenkins_home/.ssh/ssh_key.pem\n' \
 >> /etc/ssh/ssh_config
-
-# Drop back to the regular jenkins user - good practice
-USER jenkins
