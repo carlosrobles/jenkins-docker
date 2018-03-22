@@ -1,4 +1,9 @@
 FROM jenkins/jenkins:lts
+
+LABEL author.name="Carlos Garcia-Berro Molero" \
+      author.username="gbmcarlos" \
+      author.email="gbmcarlos@gmail.com"
+
 # If we want to install via apt
 # Also to avoid the permission issue of /var/jenkins_home/copy_reference_file.log
 USER root
