@@ -10,8 +10,8 @@ USER root
 
 # Install plugins
 RUN /usr/local/bin/install-plugins.sh \
-  github:1.29.0 \
-  scm-sync-configuration:0.0.10
+  github \
+  scm-sync-configuration
   
 # Configure SSH client
 RUN echo '\n \
