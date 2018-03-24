@@ -11,7 +11,15 @@ USER root
 # Install plugins
 RUN /usr/local/bin/install-plugins.sh \
   github \
-  scm-sync-configuration
+  scm-sync-configuration \
+  managed-scripts \
+  s3 \
+  gradle:1.25 \
+  multiple-scms \
+  ws-cleanup \
+  nodejs \
+  matrix-auth \
+  sbt
   
 # Configure SSH client
 RUN echo '\n \
@@ -19,3 +27,6 @@ StrictHostKeyChecking no \n \
 Host * \n \
   IdentityFile /var/jenkins_home/.ssh/ssh_key.pem\n' \
 >> /etc/ssh/ssh_config
+
+# SCM Sync Configuration plugin cannot use the default Jenkins credentials utility, so we need to set git credentials locally
+COPY ./git/* /root/
