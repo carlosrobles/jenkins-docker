@@ -10,8 +10,8 @@ docker rm -f jenkins || true
 
 echo ">>>> Running new container"
 docker run --name jenkins -d -p 8080:8080 -p 50000:50000 \
-    -v ~/jenkins_home:/var/jenkins_home sam/jenkins:latest \
-    -v ~/.ssh:/var/jenkins_home/.ssh
+    -v ~/jenkins_home:/var/jenkins_home \
+    -v ~/.ssh:/var/jenkins_home/.ssh sam/jenkins:latest
 
 echo ">>>> Tailing logs"
 docker logs -f jenkins
