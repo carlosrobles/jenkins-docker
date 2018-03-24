@@ -2,7 +2,7 @@ FROM jenkins/jenkins:lts
 
 LABEL author.name="Carlos Garcia-Berro Molero" \
       author.username="gbmcarlos" \
-      author.email="gbmcarlos@souqalmal.com"
+      author.email="gbmcarlos@gmail.com"
 
 # If we want to install via apt
 # Also to avoid the permission issue of /var/jenkins_home/copy_reference_file.log
@@ -11,15 +11,7 @@ USER root
 # Install plugins
 RUN /usr/local/bin/install-plugins.sh \
   github \
-  scm-sync-configuration \
-  managed-scripts \
-  s3 \
-  gradle:1.25 \
-  multiple-scms \
-  ws-cleanup \
-  nodejs \
-  matrix-auth \
-  sbt
+  scm-sync-configuration
 
 # Configure SSH client
 RUN echo '\n \
