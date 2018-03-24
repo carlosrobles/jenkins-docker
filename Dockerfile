@@ -20,7 +20,7 @@ RUN /usr/local/bin/install-plugins.sh \
   nodejs \
   matrix-auth \
   sbt
-  
+
 # Configure SSH client
 RUN echo '\n \
 StrictHostKeyChecking no \n \ 

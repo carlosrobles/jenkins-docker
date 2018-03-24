@@ -5,6 +5,3 @@ Run the container:
 
 Extract the initial admin password:
 `docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword`
-
-Copy the SSH key from the host to the container:
-`docker cp ~/ssh_key.pem jenkins:/var/jenkins_home/.ssh/`
